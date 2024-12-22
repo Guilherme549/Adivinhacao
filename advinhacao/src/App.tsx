@@ -1,34 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styles from "./app.module.css"
+
+import { Header } from "./components/Header"
+import { Tip } from "./components/Tip"
+import { Letter } from "./components/Letter"
+import { Button } from "./components/Button"
+import { LettersUsed } from "./components/LettersUsed"
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  function handleRestartGame(){
+    alert("Reiniciar o game")
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className={styles.container}>
+        <main>
+          <Header current={5} max={10} onRestart={handleRestartGame} />
+          
+          <Tip tip="Uma das linguagens mais ultilizadas" />
+
+          <div className={styles.word}>
+            <Letter value="R"/> 
+            <Letter value="E"/> 
+            <Letter value="A"/> 
+            <Letter value="C"/> 
+            <Letter value="T"/> 
+            
+          </div>
+
+          <h4>Palpite</h4>
+
+          <div className={styles.guess}>
+            <Button title="Confirmar"/>
+          </div>
+
+          <LettersUsed />
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
   )
 }
 
