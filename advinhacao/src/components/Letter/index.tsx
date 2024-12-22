@@ -2,7 +2,7 @@ import styles from "./styles.module.css"
 
 type Props = {
     value?: string
-    size: "default" | "small"
+    size?: "default" | "small"
     color?: "default" | "correct" | "wrong" 
 }
 
